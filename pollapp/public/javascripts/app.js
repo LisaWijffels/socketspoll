@@ -31,11 +31,11 @@ function percent(optie){
     var votes = document.querySelector(".votes");
     var total = parseInt(votes.innerHTML);
 
-    
-
+    // Omzetten naar kliks
     var g1 = (val1/100) * total;
     var g2 = (val2/100) * total;
 
+    // Welke is geklikt
     if(optie == "a" ){
         g1 = g1+1;
         
@@ -49,8 +49,8 @@ function percent(optie){
     var num1 = (g1/total) *100;
     var num2 = (g2/total) *100;
 
-    per1.innerHTML = num1;
-    per2.innerHTML = num2;
+    per1.innerHTML = Math.round(num1).toFixed(0);
+    per2.innerHTML = Math.round(num2).toFixed(0);
 
 }
 
