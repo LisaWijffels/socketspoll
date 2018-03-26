@@ -10,21 +10,49 @@ primus = Primus.connect(url, {
 
 document.querySelector(".klik1").addEventListener("click", function(e) {
     primus.write({ click: "Clicked" });
-    var per1 = document.getElementById("op1");
-    var val1 = parseInt(per1.innerHTML);
-    val1 = val1+1;
-    per1.innerHTML = val1;
+    percent("a");
     e.preventDefault();
 });
 
 document.querySelector(".klik2").addEventListener("click", function(e) {
     primus.write({ click: "Clicked" });
-    var per2 = document.getElementById("op2");
-    var val2 = parseInt(per2.innerHTML);
-    val2 = val2+1;
-    per2.innerHTML = val2;
+    percent("b");
     e.preventDefault();
 });
+
+function percent(optie){
+    
+    var per1 = document.getElementById("op1");
+    var val1 = parseInt(per1.innerHTML);
+
+    var per2 = document.getElementById("op2");
+    var val2 = parseInt(per2.innerHTML);
+
+    var votes = document.querySelector(".votes");
+    var total = parseInt(votes.innerHTML);
+
+    
+
+    var g1 = (val1/100) * total;
+    var g2 = (val2/100) * total;
+
+    if(optie == "a" ){
+        g1 = g1+1;
+        
+    } else if(optie == "b" ) {
+        g2 = g2+1;
+    }
+
+    total = total +1;
+    votes.innerHTML = total;
+
+    var num1 = (g1/total) *100;
+    var num2 = (g2/total) *100;
+
+    per1.innerHTML = num1;
+    per2.innerHTML = num2;
+
+}
 
 primus.on("data", function message(data) {
     
