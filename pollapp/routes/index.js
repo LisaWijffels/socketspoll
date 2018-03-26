@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: htmlData });
 });
 
 router.get('/createpoll', function(req, res, next){
@@ -20,9 +20,12 @@ router.get('/createpoll', function(req, res, next){
 router.post('/createpoll',function(req,res){
   var a2 = req.body.answer2;
   var htmlData = 'Hello:' + a2;
-  return res.redirect('/');
-  res.send(htmlData);
+  //res.send(htmlData);
   console.log(htmlData);
+  
+  return res.redirect('/');
 });
+
+
 
 module.exports = router;
