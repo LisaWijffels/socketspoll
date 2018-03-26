@@ -8,20 +8,33 @@ primus = Primus.connect(url, {
     }
   });
 
-  document.querySelector(".coaster").addEventListener("click", function(e) {
-    primus.write({ action: "coaster" });
+document.querySelector(".klik1").addEventListener("click", function(e) {
+    primus.write({ click: "Clicked" });
+    var per1 = document.getElementById("op1");
+    var val1 = parseInt(per1.innerHTML);
+    val1 = val1+1;
+    per1.innerHTML = val1;
     e.preventDefault();
-    console.log("test");
 });
 
-primus.on("data", function(data) {
-    //alert("data received");
-    var title = document.querySelector(".title.live");
+document.querySelector(".klik2").addEventListener("click", function(e) {
+    primus.write({ click: "Clicked" });
+    var per2 = document.getElementById("op2");
+    var val2 = parseInt(per2.innerHTML);
+    val2 = val2+1;
+    per2.innerHTML = val2;
+    e.preventDefault();
+});
 
+primus.on("data", function message(data) {
+    
+    //alert("data received");
+    var title = document.querySelector(".title");
+    
+    
     if( title ) {
-        //title.innerHTML = "koala clicked";
-        var coaster = document.querySelector(".coaster.live");
-        coaster.style.transform = "scale(1.5)";
+        
+        //title.innerHTML = "Yep";
     }
     
 });

@@ -6,3 +6,28 @@ body {
 a {
   color: #00B7FF;
 }
+
+.coaster {
+  font-size: 200px;
+  text-decoration: none;
+  display: inline-block
+}
+
+#options{
+  display:flex;
+}
+
+#options p{
+  flex-grow:1;
+  height:400px;
+  margin-left:20px;
+  background-color:paleturquoise;
+  border:solid 10px powderblue;
+  text-align:center;
+  line-height:5em;
+  font-size:2em;
+}
+
+.quest {
+  text-align:center;
+}
