@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+
+/* Bodyparser setup */
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({
   extended: false
@@ -12,6 +14,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: htmlData });
 });
 
+/*GET/POST CreatePoll page */
 router.get('/createpoll', function(req, res, next){
   res.render('createpoll', {title: "Create Poll"});
   
