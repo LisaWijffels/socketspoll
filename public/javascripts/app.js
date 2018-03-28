@@ -64,7 +64,7 @@ primus.on("data", function message(data) {
     
     if( title ) {
         percent(optie);
-        title.innerHTML = optie;
+        //title.innerHTML = optie;
     }
     
 });
