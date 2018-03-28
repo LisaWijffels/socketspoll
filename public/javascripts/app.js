@@ -9,14 +9,14 @@ primus = Primus.connect(url, {
   });
 
 document.querySelector(".klik1").addEventListener("click", function(e) {
-    primus.write({ click: "Clicked" });
-    percent("a");
+    primus.write("a");
+    
     e.preventDefault();
 });
 
 document.querySelector(".klik2").addEventListener("click", function(e) {
-    primus.write({ click: "Clicked" });
-    percent("b");
+    primus.write("b");
+    
     e.preventDefault();
 });
 
@@ -56,13 +56,15 @@ function percent(optie){
 
 primus.on("data", function message(data) {
     
+
     //alert("data received");
     var title = document.querySelector(".title");
+    var optie = data;
     
     
     if( title ) {
-        
-        //title.innerHTML = "Yep";
+        percent(optie);
+        title.innerHTML = optie;
     }
     
 });
